@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>T A N Z – Portfolio</title>
+  <title>T A N Z </title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
   <style>
@@ -107,40 +107,40 @@
   </div>
 
   <script>
-    let angle = 0;
-    let numFlowers = 10;
-    let flowers = [];
-
-    function setup() {
-      let canvas = createCanvas(400, 400);
-      canvas.parent('sketch-holder');
-      for (let i = 0; i < numFlowers; i++) {
-        flowers.push({
-          offset: random(TWO_PI),
-          size: random(30, 80),
-          color: color(random(100, 255), random(100, 255), random(100, 255))
-        });
-      }
-      noFill();
-      strokeWeight(1.5);
-    }
-
-    function draw() {
-      background(13);
-      translate(width / 2, height / 2);
-      flowers.forEach(flower => {
-        stroke(flower.color);
-        beginShape();
-        for (let a = 0; a < TWO_PI; a += 0.1) {
-          let r = flower.size + 20 * sin(6 * a + angle + flower.offset);
-          let x = r * cos(a);
-          let y = r * sin(a);
-          vertex(x, y);
-        }
-        endShape(CLOSE);
+  let angle = 0;
+  let numFlowers = 10;
+  let flowers = [];
+  
+  function setup() {
+    let canvas = createCanvas(400, 400);
+    canvas.parent('sketch-holder');
+    for (let i = 0; i < numFlowers; i++) {
+      flowers.push({
+        offset: random(TWO_PI),
+        size: random(30, 80)
       });
-      angle += 0.02;
     }
+    noFill();
+    stroke(255); // White stroke for all flowers
+    strokeWeight(1.5);
+  }
+  
+  function draw() {
+    background(13);
+    translate(width / 2, height / 2);
+    flowers.forEach(flower => {
+      beginShape();
+      for (let a = 0; a < TWO_PI; a += 0.1) {
+        let r = flower.size + 20 * sin(6 * a + angle + flower.offset);
+        let x = r * cos(a);
+        let y = r * sin(a);
+        vertex(x, y);
+      }
+      endShape(CLOSE);
+    });
+    angle += 0.02;
+  }
+
   </script>
 </body>
 </html>
