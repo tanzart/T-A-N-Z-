@@ -91,7 +91,7 @@
 
     <div class="section">
       <h2>Projects</h2>
-      <p>This sketch is created using p5.js — hover your mouse over it! 🎨</p>
+      <p>This sketch is created using p5.js 🎨</p>
       <div id="sketch-holder"></div>
     </div>
 
@@ -106,35 +106,51 @@
     </div>
   </div>
 
-  <script>
-  
-    let angle = 0;
+ <script>
+  let flowers = [];
+  let numFlowers = 10;
 
-    function setup() {
-      let canvas = createCanvas(400, 400);
-      canvas.parent('sketch-holder');
-      noFill();
-      stroke(102, 255, 204);
-      strokeWeight(1.5);
+  function setup() {
+    let canvas = createCanvas(800, 400);
+    canvas.parent('sketch-holder');
+    noFill();
+    strokeWeight(1.5);
+
+    for (let i = 0; i < numFlowers; i++) {
+      flowers.push({
+        x: random(100, width - 100),
+        y: random(100, height - 100),
+        offset: random(TWO_PI),
+        size: random(30, 80),
+        color: color(random(100, 255), random(100, 255), random(100, 255)),
+        angle: random(TWO_PI),
+        speed: random(0.01, 0.03)
+      });
     }
+  }
 
-    function draw() {
-      background(13);
-      translate(width / 2, height / 2);
+  function draw() {
+    background(13);
 
+    flowers.forEach(flower => {
+      push();
+      translate(flower.x, flower.y);
+      rotate(flower.angle);
+      stroke(flower.color);
       beginShape();
       for (let a = 0; a < TWO_PI; a += 0.1) {
-        let r = 100 + 50 * sin(6 * a + angle);
+        let r = flower.size + 20 * sin(6 * a + flower.offset);
         let x = r * cos(a);
         let y = r * sin(a);
         vertex(x, y);
       }
       endShape(CLOSE);
+      pop();
 
-      angle += 0.02;
-    }
-
-  </script>
+      flower.angle += flower.speed;
+    });
+  }
+</script>
 </body>
 </html>
 
