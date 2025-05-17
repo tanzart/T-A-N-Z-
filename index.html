@@ -105,8 +105,8 @@
 
     function draw() {
       background(15,20);
-      for (let r= 60; r>0; r-+10){
-         fill(102, 255, 204);
+      for (let r= 60; r>0; r-=10){
+        fill(102, 255, 204, 10);
         ellipse(mouseX, mouseY, r, r);
       }
       fill(102,255,204);
