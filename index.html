@@ -7,13 +7,20 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
   <style>
+    @font-face {
+      font-family: 'ArkPixel';
+      src: url('https://unpkg.com/ark-pixel-font@1.0.5/fonts/web/ark-pixel-12px.woff2') format('woff2');
+      font-display: swap;
+     }
+
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'ArkPixel', monospace;
       background-color: #0d0d0d;
       color: #f2f2f2;
       line-height: 1.6;
     }
+
     .hero {
       position: relative;
       width: 100%;
