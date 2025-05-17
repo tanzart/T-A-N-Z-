@@ -8,19 +8,12 @@
   <style>
     html, body {
       margin: 0;
-      padding: 0;
-      height: 100%;
       font-family: 'Helvetica Neue', sans-serif;
       background-color: #0d0d0d;
       color: #f2f2f2;
-      overflow: hidden;
+      lne-height:1.6;
     }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
+    
     .hero {
       position: relative;
       width: 100%;
@@ -109,22 +102,11 @@
 
   <script>
     function setup() {
-      createCanvas(windowWidth, windowHeight);
-      noStroke();
+      createCanvas(400, 400);
     }
 
     function draw() {
-      background(13, 20); // Slight transparency for trails
-      for (let r = 60; r > 0; r -= 10) {
-        fill(102, 255, 204, 10);
-        ellipse(mouseX, mouseY, r, r);
-      }
-      fill(102, 255, 204);
-      ellipse(mouseX, mouseY, 20, 20);
-    }
-
-    function windowResized() {
-      resizeCanvas(windowWidth, windowHeight);
+      background(220);
     }
   </script>
 </body>
