@@ -99,16 +99,23 @@
 
   <script>
     function setup() {
-      let canvas = createCanvas(400, 400);
-      canvas.parent('sketch-holder');
+      createCanvas(windowWidth, windowHeight);
       noStroke();
     }
 
     function draw() {
-      background(13);
-      fill(102, 255, 204);
-      ellipse(mouseX, mouseY, 40, 40);
+      background(15,20);
+      for (let r= 60; r>0; r-+10){
+         fill(102, 255, 204);
+        ellipse(mouseX, mouseY, r, r);
+      }
+      fill(102,255,204);
+      ellipse(mouseX, mouseY, 20, 20);
     }
+
+  function windowResized(){
+    resizeCanvas(windowWidth, windowHeight);
+  }
   </script>
 </body>
 </html>
