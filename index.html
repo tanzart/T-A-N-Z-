@@ -107,42 +107,51 @@
   </div>
 
   <script>
-    let angle = 0;
-    let numFlowers = 10;
+  
     let flowers = [];
-
+    let numFlowers = 10;
+  
     function setup() {
       let canvas = createCanvas(800, 400);
       canvas.parent('sketch-holder');
-      for (let i = 0; i < numFlowers; i++) {
-        flowers.push({
-          offset: random(TWO_PI),
-          size: random(30, 80),
-          color: color(random(100, 255), random(100, 255), random(100, 255))
-        });
-      }
       noFill();
       strokeWeight(1.5);
+  
+      for (let i = 0; i < numFlowers; i++) {
+        flowers.push({
+          x: random(100, width - 100),
+          y: random(100, height - 100),
+          offset: random(TWO_PI),
+          size: random(30, 80),
+          color: color(random(100, 255), random(100, 255), random(100, 255)),
+          angle: random(TWO_PI),
+          speed: random(0.01, 0.03)
+        });
+      }
     }
-
+  
     function draw() {
       background(13);
-      translate(width / 2, height / 2);
+  
       flowers.forEach(flower => {
+        push();
+        translate(flower.x, flower.y);
+        rotate(flower.angle);
         stroke(flower.color);
         beginShape();
         for (let a = 0; a < TWO_PI; a += 0.1) {
-          let r = flower.size + 20 * sin(6 * a + angle + flower.offset);
+          let r = flower.size + 20 * sin(6 * a + flower.offset);
           let x = r * cos(a);
           let y = r * sin(a);
           vertex(x, y);
         }
         endShape(CLOSE);
+        pop();
+  
+        flower.angle += flower.speed;
       });
-      angle += 0.02;
     }
 
-    
 
   </script>
 </body>
