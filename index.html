@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>T A N Z </title>
+  <title>T A N Z – Portfolio</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
   <style>
@@ -91,7 +91,7 @@
 
     <div class="section">
       <h2>Projects</h2>
-      <p>This sketch is created using p5.js 🎨</p>
+      <p>This sketch is created using p5.js — hover your mouse over it! 🎨</p>
       <div id="sketch-holder"></div>
     </div>
 
@@ -110,10 +110,10 @@
     let angle = 0;
 
     function setup() {
-      let canvas = createCanvas(800, 400);
+      let canvas = createCanvas(400, 400);
       canvas.parent('sketch-holder');
       noFill();
-      stroke(random(100,255), random(100,255), (100, 255));
+      stroke(102, 255, 204);
       strokeWeight(1.5);
     }
 
@@ -129,15 +129,11 @@
         vertex(x, y);
       }
       endShape(CLOSE);
+
       angle += 0.02;
+    }
   </script>
 </body>
 </html>
 
-
-
-
-  </script>
-</body>
-</html>
 
