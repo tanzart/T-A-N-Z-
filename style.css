@@ -1,33 +1,17 @@
-body {
-  background-color: #111;
-  color: #eee;
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+#sketch-container {
+  margin-bottom: 40px; /* space between sketch and video */
 }
 
-/* New styles for layout */
-#content-wrapper {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin: 40px auto;
-  max-width: 1200px;
-  padding: 0 20px;
-}
-
-#sketch-container, #video-container {
-  flex: 1 1 400px;
+#video-container {
   max-width: 600px;
+  margin: 0 auto 60px; /* center video and add spacing below */
+  text-align: center;
 }
 
 .video-caption {
   color: #ccc;
   font-size: 0.95rem;
   font-style: italic;
-  text-align: center;
   margin-top: 0.5rem;
 }
+
